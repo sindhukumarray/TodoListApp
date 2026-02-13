@@ -1,55 +1,252 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  background: #f3f4f6;
+}
+
+body {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  align-items: center;
+  background: #121212;
+  transition: 0.3s;
 }
 
-.container {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-h2 {
-  margin-bottom: 1rem;
-}
-
-form {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-input[type="text"] {
-  flex: 1;
-  padding: 0.5rem;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-li {
+/* Header same line */
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: #f9fafb;
-  border-radius: 4px;
+  margin-bottom: 15px;
 }
 
-li.completed {
+#themeBtn {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#themeBtn:hover {
+  transform: scale(1.1);
+}
+
+
+/* Container */
+.container {
+  width: 400px;
+  padding: 25px;
+  background: #1e1e1e;
+  border-radius: 15px;
+  color: white;
+  transition: 0.3s;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+/* Input Section */
+input, select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Buttons */
+button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+/* Add Button */
+#addBtn {
+  background: #00c6ff;
+  color: white;
+}
+
+#addBtn:hover {
+  background: #0096c7;
+  transform: scale(1.05);
+}
+
+/* Filter Buttons */
+.filter-btn {
+  background: #ffffff30;
+  color: white;
+  margin-right: 5px;
+}
+
+.filter-btn:hover {
+  background: white;
+  color: #333;
+}
+
+/* Task List */
+ul {
+  list-style: none;
+  margin-top: 15px;
+}
+
+.task-item {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.task-item:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.02);
+}
+
+/* Task Text */
+.task-text {
+  cursor: pointer;
+}
+
+/* Completed */
+.completed .task-text {
   text-decoration: line-through;
-  color: #6b7280;
+  opacity: 0.6;
+}
+
+/* Priority Badges */
+.badge {
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-left: 6px;
+  color: white;
+}
+
+.low {
+  background: #2ecc71;
+}
+
+.medium {
+  background: #f39c12;
+}
+
+.high {
+  background: #e74c3c;
+}
+
+/* Delete Button */
+.deleteBtn {
+  background: crimson;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.deleteBtn:hover {
+  background: darkred;
+  transform: scale(1.1);
+}
+
+/* Counter */
+p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+/* Animation */
+.remove {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: 0.3s ease;
+}
+
+/* 📱 Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+}
+/* Toggle Button */
+.theme-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+#themeBtn {
+  background: #333;
+  color: white;
+  border-radius: 50%;
+  padding: 6px 10px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+#themeBtn:hover {
+  transform: scale(1.1);
+}
+
+body.light #themeBtn {
+  background: #ddd;
+  color: #222;
+}
+
+
+body.light .container {
+  background: white;
+  color: #333;
+}
+
+body.light input,
+body.light select {
+  background: #f0f0f0;
+  color: #333;
+}
+
+body.light .task-item {
+  background: #f7f7f7;
+}
+
+body.light .filter-btn {
+  background: #ddd;
+  color: #333;
 }
