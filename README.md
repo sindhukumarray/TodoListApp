@@ -24,7 +24,8 @@ A modern and responsive Todo List web application built using HTML, CSS, and Jav
 
 ## 📸 Preview
 
-(Add screenshot here later)
+![Todo App Preview](preview.png)
+
 
 ## 📌 Future Improvements
 
