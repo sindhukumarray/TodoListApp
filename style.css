@@ -5,37 +5,33 @@
   font-family: Arial, sans-serif;
 }
 
+/* Smooth transition everywhere */
+body,
+.container,
+input,
+select,
+.task-item,
+button {
+  transition: all 0.4s ease;
+}
+
+/* ================= DARK MODE (DEFAULT) ================= */
+
 body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #121212;
-  transition: 0.3s;
+  background: linear-gradient(135deg, #1f1f1f, #121212);
 }
 
-/* Header same line */
+/* Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
 }
-
-#themeBtn {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#themeBtn:hover {
-  transform: scale(1.1);
-}
-
 
 /* Container */
 .container {
@@ -44,7 +40,7 @@ body {
   background: #1e1e1e;
   border-radius: 15px;
   color: white;
-  transition: 0.3s;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
 .container:hover {
@@ -58,8 +54,9 @@ h1 {
   font-size: 26px;
 }
 
-/* Input Section */
-input, select {
+/* Inputs */
+input,
+select {
   width: 100%;
   padding: 10px 12px;
   border-radius: 10px;
@@ -67,6 +64,8 @@ input, select {
   outline: none;
   margin-bottom: 10px;
   font-size: 14px;
+  background: #2a2a2a;
+  color: white;
 }
 
 /* Buttons */
@@ -76,23 +75,21 @@ button {
   border-radius: 10px;
   cursor: pointer;
   font-weight: 500;
-  transition: 0.3s ease;
 }
 
 /* Add Button */
 #addBtn {
-  background: #00c6ff;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   color: white;
 }
 
 #addBtn:hover {
-  background: #0096c7;
   transform: scale(1.05);
 }
 
 /* Filter Buttons */
 .filter-btn {
-  background: #ffffff30;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
   margin-right: 5px;
 }
@@ -109,18 +106,17 @@ ul {
 }
 
 .task-item {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.3s ease;
 }
 
 .task-item:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.3);
   transform: scale(1.02);
 }
 
@@ -177,16 +173,76 @@ p {
   opacity: 0.9;
 }
 
-/* Animation */
+/* Remove Animation */
 .remove {
   opacity: 0;
   transform: translateX(40px);
-  transition: 0.3s ease;
 }
 
-/* 📱 Responsive */
+/* Toggle Button */
+#themeBtn {
+  background: linear-gradient(135deg, #444, #222);
+  color: white;
+  border-radius: 50%;
+  padding: 6px 10px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+#themeBtn:hover {
+  transform: rotate(180deg) scale(1.1);
+}
+
+/* ================= LIGHT MODE ================= */
+
+body.light {
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+}
+
+body.light .container {
+  background: #ffffff;
+  color: #333;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+body.light input,
+body.light select {
+  background: #f3f6ff;
+  color: #333;
+}
+
+body.light .task-item {
+  background: #eef2ff;
+}
+
+body.light .filter-btn {
+  background: #dfe7ff;
+  color: #333;
+}
+
+body.light .task-item:hover {
+  background: #d9e4ff;
+}
+
+body.light #addBtn {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: #333;
+}
+
+body.light #themeBtn {
+  background: linear-gradient(135deg, #ffd700, #ffae00);
+  color: #222;
+  transform: rotate(180deg);
+}
+
+/* Responsive */
 @media (max-width: 480px) {
   .container {
+    width: 90%;
     padding: 20px;
   }
 
@@ -203,50 +259,4 @@ p {
   button {
     font-size: 12px;
   }
-}
-/* Toggle Button */
-.theme-toggle {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 10px;
-}
-
-#themeBtn {
-  background: #333;
-  color: white;
-  border-radius: 50%;
-  padding: 6px 10px;
-  cursor: pointer;
-  border: none;
-  transition: 0.3s ease;
-}
-
-#themeBtn:hover {
-  transform: scale(1.1);
-}
-
-body.light #themeBtn {
-  background: #ddd;
-  color: #222;
-}
-
-
-body.light .container {
-  background: white;
-  color: #333;
-}
-
-body.light input,
-body.light select {
-  background: #f0f0f0;
-  color: #333;
-}
-
-body.light .task-item {
-  background: #f7f7f7;
-}
-
-body.light .filter-btn {
-  background: #ddd;
-  color: #333;
 }
