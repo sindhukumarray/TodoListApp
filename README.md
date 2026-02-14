@@ -1,4 +1,4 @@
-# ✨ Advanced Todo App
+# ✨Todo App
 
 A modern and responsive Todo List web application built using HTML, CSS, and JavaScript.
 
